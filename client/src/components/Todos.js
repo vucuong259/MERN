@@ -39,8 +39,8 @@ const Todos = () => {
         setTodosState(newTodos);
     }
 
-    const addTodo = () => {
-        
+    const addTodo = (title) => {
+        const newTodos = [...todosState, {}]
     }
 
     return (
