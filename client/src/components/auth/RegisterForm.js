@@ -22,11 +22,14 @@ const RegisterForm = () => {
 
     const register = async e => {
         e.preventDefault();
+        if(password !== confirmPassword){
+            setAlert({type: 'danger', message: 'Password do not match'})
+            setTimeout(() => setAlert(null), 5000)
+            return
+        }
         try {
             const registerData = await registerUser(registerForm)
-            if(registerData.success){
-				// history.push('/dashboard')
-			} else {
+            if(!registerData.success){
 				setAlert({type: 'danger', message: registerData.message})
                 setTimeout(() => setAlert(null), 5000)
 			}
